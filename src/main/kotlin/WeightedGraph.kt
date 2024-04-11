@@ -1,6 +1,6 @@
 // not optimal and won't work for all use cases but it'll do the job for me
 
-class WeightedGraph<T> {
+class WeightedGraph<T> { // T is the type of the data representing a vertex
     enum class EdgeType { DIRECTED, UNDIRECTED }
     data class Edge<T>(val destination: T, val weight: Double)
 

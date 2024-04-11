@@ -8,7 +8,7 @@ data class Path<T>(
 
     // backtracks the path through all the parent paths and returns the vertices in a list
     fun verticesAsList(): LinkedList<T> {
-        val list = LinkedList<T>() // storing in a linked for O(1) prepend
+        val list = LinkedList<T>() // storing in a linked list for O(1) prepend
         var path: Path<T>? = this
         while (path != null) { // while there are still parent paths
             list.prepend(path.current)

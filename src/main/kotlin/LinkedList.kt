@@ -1,4 +1,4 @@
-// (The introductory comments were an attempt to teach my teacher Kotlin but I was unsuccessful.)
+// (The introductory comments were the beginning of an attempt to teach my teacher Kotlin but I was unsuccessful.)
 
 // generics work just like in most other languages
 class LinkedList<T>(vararg elements: T) { // varargs is like ... in Java and JS
@@ -8,12 +8,8 @@ class LinkedList<T>(vararg elements: T) { // varargs is like ... in Java and JS
     private var head: Node<T>? = null // vars are mutable, vals are not
     private var tail: Node<T>? = null // we don't need semicolons!
 
-    /* without other examples this syntax is probably quite hard to grasp (especially because it's abbreviated in
-     * this case) but we're just making the setter for this property private so that it can only be set from within the
-     * class but not changed elsewhere.
-     */
     var length: Int = 0
-        private set
+        private set // here we're overriding the setter of the var so that you can only set the length inside the class
 
     // this is one of a few ways to do constructors
     init {
@@ -54,7 +50,7 @@ class LinkedList<T>(vararg elements: T) { // varargs is like ... in Java and JS
          * (as can if statements and try-catch blocks).
          *
          * All the !!s in here are to tell the compiler the value is definitely not null (because of the check above).
-         * There's probably a better and more idiomatic way to do this but I've only started learning Kotlin recently.
+         * There's probably a better and more idiomatic way to do this, but I've only started learning Kotlin recently.
          */
         return when (index) {
             0 -> head!!
@@ -128,7 +124,7 @@ class LinkedList<T>(vararg elements: T) { // varargs is like ... in Java and JS
         return accumulator
     }
 
-    override fun toString(): String = buildString {
+    override fun toString(): String = buildString { // we're now in the context of a StringBuilder
         append("[")
         var current = head
         while (current != null) {

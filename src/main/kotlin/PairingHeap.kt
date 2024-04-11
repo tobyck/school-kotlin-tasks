@@ -20,7 +20,7 @@ class PairingHeap<T : Comparable<T>>(
         else {
             if (data!! < other.data!!) { // if the root of this heap is still less than the other one
                 subheaps.prepend(other)
-            } else { // otherwise take the root from the other heap and set the subheaps to this heap and the subheaps of the other heap
+            } else { // otherwise take the root from the other heap, and set the subheaps to this heap and the subheaps of the other heap
                 subheaps = other.subheaps.apply { prepend(PairingHeap(data, subheaps)) }
                 data = other.data
             }
