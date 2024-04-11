@@ -1,9 +1,7 @@
-import org.example.LinkedList
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Test
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
 class LinkedListTest {
-    // can't be bothered writing lots of proper tests
     @Test
     fun test() {
         LinkedList<Int>().run {
@@ -34,6 +32,8 @@ class LinkedListTest {
             assertEquals(1, at(0))
             assertEquals(5, length)
             assertEquals(false, isEmpty())
+            assertEquals("[1, 5, 8, 6, 9]", toString())
+            assertEquals(29, reduce { acc, i -> acc + i })
         }
     }
 }

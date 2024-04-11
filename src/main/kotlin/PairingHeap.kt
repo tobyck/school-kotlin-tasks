@@ -1,15 +1,15 @@
-package org.example
-
 class PairingHeap<T : Comparable<T>>(
     private var data: T? = null,
-    private var children: LinkedList<PairingHeap<T>> = LinkedList()
+    private var subheaps: LinkedList<PairingHeap<T>> = LinkedList()
 ) {
     fun getMin() = data
+
+    fun isEmpty() = data == null
 
     // inherit the properties of a different heap
     private fun become(other: PairingHeap<T>) {
         data = other.data
-        children = other.children
+        subheaps = other.subheaps
     }
 
     // merges another heap into this one
@@ -18,8 +18,12 @@ class PairingHeap<T : Comparable<T>>(
 
         if (data == null) become(other)
         else {
-            if (data!! > other.data!!) data = other.data // take the smaller of the two roots
-            children.append(other) // add the other heap the list of subheaps in this heap
+            if (data!! < other.data!!) {
+                subheaps.prepend(other)
+            } else {
+                subheaps = other.subheaps.apply { prepend(PairingHeap(data, subheaps)) }
+                data = other.data
+            }
         }
     }
 
@@ -28,12 +32,12 @@ class PairingHeap<T : Comparable<T>>(
 
     fun deleteMin(): T? {
         if (data == null) throw NoSuchElementException("Cannot delete from an empty heap!")
-
+        //println(data)
         return data.also {
-            when (children.length) {
+            when (subheaps.length) {
                 0 -> data = null
-                1 -> become(children.at(0))
-                else -> become(children.reduce { acc, heap -> acc.apply { meld(heap) } }!!) // reduce by meld
+                1 -> become(subheaps.at(0))
+                else -> become(subheaps.reduce { acc, heap -> acc.apply { meld(heap) } }!!) // reduce by meld
             }
         }
     }

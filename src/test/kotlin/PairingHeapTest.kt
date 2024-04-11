@@ -1,15 +1,10 @@
-import org.example.PairingHeap
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class PairedHeapTest {
-    class ExampleObject(val value: Int) : Comparable<ExampleObject> {
+class PairingHeapTest {
+    data class ExampleObject(val value: Int) : Comparable<ExampleObject> {
         override fun compareTo(other: ExampleObject): Int {
             return value.compareTo(other.value)
-        }
-
-        override fun toString(): String {
-            return "ExampleObject(${value.toString()})"
         }
     }
 

@@ -1,10 +1,4 @@
-/* Author: Toby Connor-Kebbell
- * Date: 12 March 2024
- * Title: Kotlin Linked List
- * Description: A simple linked list implementation in Kotlin with some comments introducing the language
- */
-
-package org.example
+// (The introductory comments were an attempt to teach my teacher Kotlin but I was unsuccessful.)
 
 // generics work just like in most other languages
 class LinkedList<T>(vararg elements: T) { // varargs is like ... in Java and JS
@@ -53,22 +47,34 @@ class LinkedList<T>(vararg elements: T) { // varargs is like ... in Java and JS
     // one line functions can be written like this
     fun isEmpty() = head == null
 
+    fun forEach(f: (T) -> Unit) { // (T) -> Unit is a function type which takes a T and returns Unit (void)
+        var current = head
+        while (current != null) {
+            f(current.data)
+            current = current.next
+        }
+    }
+
     private fun nodeAt(index: Int): Node<T> {
         if (index < 0 || index >= length) throw IndexOutOfBoundsException("Index $index is out of bounds!")
 
-        // all the !!s in here are to tell the compiler the value is definitely not null (because of the check above)
-        // there's probably a better and more idiomatic way to do this but i've only started learning kotlin recently
+        /* A `when` expression is basically a more powerful switch statement which can also be used as an expression
+         * (as can if statements and try-catch blocks).
+         *
+         * All the !!s in here are to tell the compiler the value is definitely not null (because of the check above).
+         * There's probably a better and more idiomatic way to do this but I've only started learning Kotlin recently.
+         */
         return when (index) {
             0 -> head!!
             length - 1 -> tail!!
             else -> {
-                var node = head!!
+                var node = head!! // start at the head
                 var i = 0
-                while (i != index) {
+                while (i != index) { // go to the next node and increment i until we reach the desired index
                     node = node.next!!
                     i++
                 }
-                node
+                node // this will be the result of the expression and therefore this function
             }
         }
     }
@@ -76,7 +82,6 @@ class LinkedList<T>(vararg elements: T) { // varargs is like ... in Java and JS
     fun at(index: Int) = this.nodeAt(index).data
 
     fun insert(data: T, index: Int) {
-        // this is basically a switch statement but more powerful
         when {
             index < 0 -> throw IndexOutOfBoundsException("Cannot insert at negative index!")
             index > length -> throw IndexOutOfBoundsException("Index $index is out of bounds!")
@@ -129,5 +134,16 @@ class LinkedList<T>(vararg elements: T) { // varargs is like ... in Java and JS
             current = current.next
         }
         return accumulator
+    }
+
+    override fun toString(): String = buildString {
+        append("[")
+        var current = head
+        while (current != null) {
+            append(current.data)
+            current = current.next
+            if (current != null) append(", ")
+        }
+        append("]")
     }
 }
