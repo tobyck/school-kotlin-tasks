@@ -18,9 +18,9 @@ class PairingHeap<T : Comparable<T>>(
 
         if (data == null) become(other)
         else {
-            if (data!! < other.data!!) {
+            if (data!! < other.data!!) { // if the root of this heap is still less than the other one
                 subheaps.prepend(other)
-            } else {
+            } else { // otherwise take the root from the other heap and set the subheaps to this heap and the subheaps of the other heap
                 subheaps = other.subheaps.apply { prepend(PairingHeap(data, subheaps)) }
                 data = other.data
             }
@@ -32,12 +32,12 @@ class PairingHeap<T : Comparable<T>>(
 
     fun deleteMin(): T? {
         if (data == null) throw NoSuchElementException("Cannot delete from an empty heap!")
-        //println(data)
+
         return data.also {
             when (subheaps.length) {
                 0 -> data = null
                 1 -> become(subheaps.at(0))
-                else -> become(subheaps.reduce { acc, heap -> acc.apply { meld(heap) } }!!) // reduce by meld
+                else -> become(subheaps.reduce { acc, heap -> acc.apply { meld(heap) } }!!) // merge all the subheaps into one
             }
         }
     }

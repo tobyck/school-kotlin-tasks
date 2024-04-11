@@ -47,14 +47,6 @@ class LinkedList<T>(vararg elements: T) { // varargs is like ... in Java and JS
     // one line functions can be written like this
     fun isEmpty() = head == null
 
-    fun forEach(f: (T) -> Unit) { // (T) -> Unit is a function type which takes a T and returns Unit (void)
-        var current = head
-        while (current != null) {
-            f(current.data)
-            current = current.next
-        }
-    }
-
     private fun nodeAt(index: Int): Node<T> {
         if (index < 0 || index >= length) throw IndexOutOfBoundsException("Index $index is out of bounds!")
 

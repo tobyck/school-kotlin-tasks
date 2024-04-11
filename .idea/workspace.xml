@@ -5,17 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7347a917-15d1-4afe-9e16-3f42b6192b64" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Dijkstra.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/WeightedGraph.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/DijkstraTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/WeightedGraphTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Dijkstra.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Dijkstra.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/LinkedList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/LinkedList.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/PairedHeap.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/PairingHeap.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/LinkedListTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/LinkedListTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/PairedHeapTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/PairingHeapTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/PairingHeap.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/PairingHeap.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/WeightedGraph.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/WeightedGraph.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/DijkstraTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/DijkstraTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +70,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Gradle.DijkstraTest">
     <configuration name="AllTests" type="GradleRunConfiguration" factoryName="Gradle" activateToolWindowBeforeRun="false">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -98,8 +93,37 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="DijkstraTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;DijkstraTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Gradle.AllTests" />
+      <item itemvalue="Gradle.DijkstraTest" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.DijkstraTest" />
         <item itemvalue="Gradle.AllTests" />
       </list>
     </recent_temporary>
@@ -120,7 +144,7 @@
       <workItem from="1712795182046" duration="53000" />
       <workItem from="1712795249337" duration="108000" />
       <workItem from="1712795368230" duration="105000" />
-      <workItem from="1712795677062" duration="14155000" />
+      <workItem from="1712795677062" duration="16794000" />
     </task>
     <servers />
   </component>

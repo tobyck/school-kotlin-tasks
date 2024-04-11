@@ -14,11 +14,14 @@ class WeightedGraph<T> {
     fun addVertices(vararg data: T) = data.forEach { addVertex(it) }
 
     fun addEdge(type: EdgeType, source: T, destination: T, weight: Double) {
+        // make sure that both vertices are in the graph
         if (!adjacencyLists.containsKey(source) || !adjacencyLists.containsKey(destination)) {
             throw IllegalArgumentException("Both vertices must be in the graph!")
         }
 
         adjacencyLists[source]!!.add(Edge(destination, weight))
+
+        // if the edge goes both ways, add another one in the other direction
         if (type == EdgeType.UNDIRECTED) adjacencyLists[destination]!!.add(Edge(source, weight))
     }
 

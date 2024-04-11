@@ -22,7 +22,7 @@ fun <T : Comparable<T>> dijkstra(graph: WeightedGraph<T>, start: T, end: T): Pat
     // a hash map mapping every vertex to infinity except the start vertex to 0
     val distances = hashMapOf(*graph.vertices().map {
         it to if (it == start) 0.0 else Double.POSITIVE_INFINITY
-    }.toTypedArray())
+    }.toTypedArray()) // no clue why you need .toTypedArray() but you do apparently
 
     val queue = PairingHeap(Path(null, start, 0.0))
 
@@ -33,7 +33,7 @@ fun <T : Comparable<T>> dijkstra(graph: WeightedGraph<T>, start: T, end: T): Pat
         graph.neighbours(path.current).forEach {
             val newDistance = distances[path.current]!! + it.weight // find the new distance to the neighbour
             if (newDistance < distances[it.destination]!!) { // if it's less than the shortest way to the neighbour
-                distances[it.destination] = newDistance // update it
+                distances[it.destination] = newDistance // update the distance in the hash map
                 queue.insert(Path(path, it.destination, newDistance)) // and insert it into the queue
             }
         }
